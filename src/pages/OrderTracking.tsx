@@ -194,14 +194,14 @@ useEffect(() => {
     table:  'orders',
   },
   (payload) => {
-    console.log('🔥 realtime fired!', payload)        // add this
-    console.log('🔥 payload.new:', payload.new)       // add this
-    console.log('🔥 current id:', id)                 // add this
+    console.log(' realtime fired!', payload)       
+    console.log(' payload.new:', payload.new)      
+    console.log(' current id:', id)                 
     if (payload.new && (payload.new as Order).id === id) {
-      console.log('✅ match! updating order...')       // add this
+      console.log(' match! updating order...')      
       setOrder(payload.new as Order)
     } else {
-      console.log('❌ no match', payload.new)          // add this
+      console.log(' no match', payload.new)         
     }
   }
 )
@@ -337,7 +337,7 @@ useEffect(() => {
               {STEPS.map((step, i) => {
                 const done   = i < stepIdx
                 const active = i === stepIdx
-                const future = i > stepIdx
+               
 
                 return (
                   <div key={step.key} className="flex flex-col items-center gap-2">
