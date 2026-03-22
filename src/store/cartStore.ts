@@ -18,8 +18,8 @@ export const useCartStore = create<CartState>((set, get) => ({
   addItem: (item, restaurantId) => {
     const { items, restaurantId: currentRestaurantId } = get()
 
-    // if adding from a different restaurant, clear cart first
-    if (currentRestaurantId && currentRestaurantId !== restaurantId) {
+   
+    if (currentRestaurantId && currentRestaurantId !== restaurantId && items.length > 0  ) {
       if (!confirm('Your cart has items from another restaurant. Clear cart and add this item?')) return
       set({ items: [], restaurantId: null })
     }
